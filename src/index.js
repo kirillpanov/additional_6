@@ -5,7 +5,6 @@ counterOfFives,
 arrayFromExpression = [],
 numberContent = [],
 number,
-numberOfZeros,
 twosAndFives = {
     numberOfTwos: 0,
     numberOfFives: 0
@@ -39,14 +38,13 @@ function zerosInFactoreal (n,type) {
 };
 
 module.exports = function zeros(expression) {
-  numberOfZeros = {};
   arrayFromExpression = expression.split('*');
   twosAndFives.numberOfTwos = 0;
   twosAndFives.numberOfFives = 0;
   for (var i = 0; i < arrayFromExpression.length; i++) {
     numberContent = arrayFromExpression[i].split('!');
     number = +numberContent[0];
-    numberOfZeros = numberContent.length == 2 ? zerosInFactoreal (number) : zerosInFactoreal (number, 'double');
+    numberContent.length == 2 ? zerosInFactoreal (number) : zerosInFactoreal (number, 'double');
   };
   return Math.min( twosAndFives.numberOfTwos , twosAndFives.numberOfFives );
 };
